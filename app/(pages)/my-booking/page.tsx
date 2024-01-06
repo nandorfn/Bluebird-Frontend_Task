@@ -1,10 +1,10 @@
 
 const Page: React.FC = () => {
-    return (
-        <>
-        
-        </>
-    );
+  return (
+    <>
+
+    </>
+  );
 };
 
 export default Page;

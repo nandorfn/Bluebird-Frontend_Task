@@ -1,7 +1,9 @@
+import { TLinkSource } from "./types";
+
 export const menus = [
-  { label: 'Home', link: '#' },
-  { label: 'Wishlist', link: '#' },
-  { label: 'My Booking', link: '#' },
+  { label: 'Home', link: '/' },
+  { label: 'Wishlist', link: '/wishlist' },
+  { label: 'My Booking', link: '/my-booking' },
 ]
 
 export const brandLogo = 'https://www.bluebirdgroup.com/asset/51_tahun/Icon_BBG_51th_Bluebird_Group.svg';
