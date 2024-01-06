@@ -1,4 +1,5 @@
 import { aboutUs, appSource, brandLogo, extendLinks, products, sosmedLink } from "@/app/helpers/data";
+import { TLinkSource } from "@/app/helpers/types";
 import Image from "next/image";
 import Link from "next/link";
 
