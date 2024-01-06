@@ -5,14 +5,12 @@ import Link from "next/link";
 
 interface Props {
     data: TCarType
-    type: number
 }
 
-const CarList: React.FC<Props> = ({ data, type }) => {
-
+const CarList: React.FC<Props> = ({ data }) => {
     return (
         <Link
-            href={`details?name=${data?.vehicle}&category_id=${type}`}
+            href={`details?name=${data?.vehicle}`}
             className="flex w-fit mx-auto flex-col gap-2 p-4 shadow-xl rounded-xl cursor-pointer">
             <Image
                 src={data?.imageURL}

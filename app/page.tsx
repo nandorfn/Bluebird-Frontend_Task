@@ -15,7 +15,8 @@ export default async function Home({
         data={category} 
         searchParam={searchParams?.category_id ?? 1}
         />
-      <CarsContainer 
+      <CarsContainer
+        searchQuery={searchParams?.search}
         searchParams={searchParams?.category_id ?? 1}
         data={type} />
     </>

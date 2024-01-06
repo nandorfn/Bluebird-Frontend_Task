@@ -3,13 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 interface CarsState {
   wishlist: TCarType[],
-  details: TCarType | null,
 }
 
 
 const initialState: CarsState = {
   wishlist: [],
-  details: null,
 }
 
 const counterSlice = createSlice({
@@ -23,11 +21,8 @@ const counterSlice = createSlice({
       // jika belum, tambahkan data baru ke state wishlist
       if (!isExist) state.wishlist = [...state.wishlist, action?.payload];
     },
-    checkDetails: (state, action) => {
-      state.details = { ...action.payload }
-    }
   },
 })
 
-export const { addWishlist, checkDetails } = counterSlice.actions
+export const { addWishlist } = counterSlice.actions
 export default counterSlice.reducer

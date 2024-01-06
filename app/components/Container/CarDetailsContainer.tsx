@@ -14,9 +14,9 @@ type SearchObject = {
 }
 
 const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
-  const { name, category_id }: SearchObject = searchParam;
-  const car = findDataByNameAndCategoryId(data, name, category_id);
-  
+  const { name }: SearchObject = searchParam;
+  const car = findDataByNameAndCategoryId(data, name);
+
   if (!car) return <EmptyData message="Data tidak ditemukan!" />
 
   return (
@@ -29,8 +29,8 @@ const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
             width={300}
             height={300}
             alt={car?.vehicle} />
-            
-            <WishAndShareButton data={car} />
+
+          <WishAndShareButton data={car} />
         </div>
         <div className="flex flex-col w-1/2 gap-5">
           <ul className=" my-auto w-full">
@@ -51,10 +51,21 @@ const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
 
 export default CarDetailsContainer;
 
-const findDataByNameAndCategoryId = (data: TCarsType[], name?: string, category?: string) => {
-  // cari kategori id di dalam array data
-  const filterData = data?.find(item => item.category_id === Number(category));
+const findDataByNameAndCategoryId = (data: TCarsType[], name?: string) => {
+  try {
+    for (const item of data) {
+      for (const car of item.car_type) {
+        if (car.vehicle.toLowerCase() === name?.toLowerCase()) {
+          return car;
+        }
+      }
+    }
 
-  // setelah mendapatkan category id yang sesuai, function mereturn data yang dicari di dalam array car_type
-  return filterData?.car_type?.find(item => item.vehicle.toLowerCase() === name?.toLowerCase());
-}
+    throw new Error(`Data dengan nama: ${name} tidak ditemukan!`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+      return null;
+    }
+  }
+};
