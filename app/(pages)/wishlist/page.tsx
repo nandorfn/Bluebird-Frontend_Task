@@ -8,7 +8,7 @@ const Page = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) => {
-  const { category, type }: DataApi = await getData();
+  const { category }: DataApi = await getData();
   return (
     <>
       <Category data={category} searchParam={searchParams.category}  />

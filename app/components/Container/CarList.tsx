@@ -1,14 +1,19 @@
 import { TCarType } from "@/app/helpers/types";
 import Image from "next/image";
 import WishlistButton from "../Button/WishlistButton";
+import Link from "next/link";
 
 interface Props {
     data: TCarType
+    type: number
 }
 
-const CarList: React.FC<Props> = ({ data }) => {
+const CarList: React.FC<Props> = ({ data, type }) => {
+
     return (
-        <div className="flex w-fit mx-auto flex-col gap-2 p-4 shadow-xl rounded-xl cursor-pointer">
+        <Link
+            href={`details?name=${data?.vehicle}&category_id=${type}`}
+            className="flex w-fit mx-auto flex-col gap-2 p-4 shadow-xl rounded-xl cursor-pointer">
             <Image
                 src={data?.imageURL}
                 width={300}
@@ -18,7 +23,7 @@ const CarList: React.FC<Props> = ({ data }) => {
                 <p className=" text-center text-[#6C6E72] text-xl font-medium">{data?.vehicle}</p>
                 <WishlistButton data={data} />
             </div>
-        </div>
+        </Link>
     );
 };
 

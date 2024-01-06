@@ -1,17 +1,34 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import { TCategory } from "@/app/helpers/types";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
 interface CategoryProps {
     data: TCategory[];
     searchParam: any;
 }
 
-const Category: React.FC<CategoryProps> = async ({ data, searchParam }) => {    
+const Category: React.FC<CategoryProps> = async ({ data, searchParam }) => {   
+    const pathname = usePathname()
+    const searchParams = useSearchParams()!
+    
+    const createQueryString = useCallback(
+        (name: string, value: string) => {
+          const params = new URLSearchParams(searchParams)
+          params.set(name, value)
+     
+          return params.toString()
+        },
+        [searchParams]
+      )
+      
+
     const listCategory = data?.map((item: TCategory) => (
         <li key={item?.id} className="min-w-36 p-4 hover:bg-slate-200">
             <Link 
-                href={`?category=${item?.id}`} 
+                href={pathname + '?' + createQueryString('category_id', String(item?.id))} 
                 className={`flex flex-col ${searchParam != item?.id  ? 'opacity-50' : 'opacity-100'}`}>
                 <Image
                     src={`https://${item.imageURL.split("//")[1]}`}

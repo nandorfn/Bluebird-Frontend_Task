@@ -20,7 +20,7 @@ const CarsContainer: React.FC<Props> = ({
       <ul className="flex flex-col md:flex-row max-w-7xl mx-auto justify-center gap-10 my-32">
         {filteredData?.car_type.map((item: TCarType, index: number) => (
           <li key={index}>
-            <CarList data={item} />
+            <CarList data={item} type={filteredData?.category_id} />
           </li>
         ))
         }

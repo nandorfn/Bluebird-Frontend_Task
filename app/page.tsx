@@ -13,10 +13,10 @@ export default async function Home({
     <>
       <Category 
         data={category} 
-        searchParam={searchParams?.category ?? 1}
+        searchParam={searchParams?.category_id ?? 1}
         />
       <CarsContainer 
-        searchParams={searchParams?.category ?? 1}
+        searchParams={searchParams?.category_id ?? 1}
         data={type} />
     </>
   )
