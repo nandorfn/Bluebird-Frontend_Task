@@ -10,7 +10,7 @@ interface CategoryProps {
     searchParam: any;
 }
 
-const Category: React.FC<CategoryProps> = async ({ data, searchParam }) => {   
+const Category: React.FC<CategoryProps> = ({ data, searchParam }) => {   
     const pathname = usePathname()
     const searchParams = useSearchParams()!
     

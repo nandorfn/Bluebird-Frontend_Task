@@ -7,7 +7,7 @@ import EmptyData from "../Error/EmptyData";
 const WishlistContainer: React.FC = () => {
   const wishlist = useAppSelector((state) => state.cars.wishlist);
   
-  if (wishlist.length < 1) return <EmptyData message="Data wishlist kosong!" />;
+  if (wishlist.length < 1) return <EmptyData message="Data kosong!" />;
   
   return (
     <>

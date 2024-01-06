@@ -2,6 +2,7 @@ import { TCarsType } from "@/app/helpers/types";
 import Image from "next/image";
 import WishAndShareButton from "../Button/WishAndShareButton";
 import EmptyData from "../Error/EmptyData";
+import BookingButton from "../Button/BookingButton";
 
 interface Props {
   data: TCarsType[],
@@ -22,7 +23,7 @@ const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
   return (
     <>
       <div className="flex flex-col md:flex-row max-w-2xl mx-auto my-20 gap-10">
-        <div className="flex flex-col w-1/2 gap-5">
+        <div className="flex flex-col w-[80%] mx-auto md:w-1/2 gap-5">
           <Image
             className=" mx-auto"
             src={car?.imageURL}
@@ -32,7 +33,7 @@ const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
 
           <WishAndShareButton data={car} />
         </div>
-        <div className="flex flex-col w-1/2 gap-5">
+        <div className="flex flex-col w-[80%] mx-auto md:w-1/2 gap-5">
           <ul className=" my-auto w-full">
             {car?.description.map((item, index) => (
               <li className="font-medium text-[#2f5296] text-2xl" key={index}>{item}</li>
@@ -41,7 +42,7 @@ const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
           </ul>
           <div className="flex flex-row justify-between items-center">
             <p className=" text-2xl text-red-500 font-semibold">{car?.price}</p>
-            <button className="btn bg-[#2f5296] text-white">Book Now</button>
+            <BookingButton data={car} />
           </div>
         </div>
       </div>

@@ -15,9 +15,15 @@ const WishlistButton: React.FC<Props> = ({ data }) => {
   const dispatch = useAppDispatch();
   const isLiked = wishlist?.some(item => item.vehicle === data.vehicle);
   
+  const addCarToWishlist = (e: React.SyntheticEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(addWishlist(data))
+  }
+  
   return (
     <>
-      <button onClick={() => dispatch(addWishlist(data))}  className=" hover:scale-110">
+      <button onClick={(e) => addCarToWishlist(e)}  className=" hover:scale-110">
           <Image src={isLiked ? heartFill : heart} width={24} height={24} alt="Like" />
       </button>
     </>

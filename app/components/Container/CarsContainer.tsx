@@ -1,9 +1,11 @@
+'use client'
 import {
   TCarType,
   TCarsType
 } from "@/app/helpers/types";
 import CarList from "./CarList";
 import EmptyData from "../Error/EmptyData";
+import useDebounce from "@/app/hooks/useDebounce";
 
 interface Props {
   data: TCarsType[],
@@ -17,8 +19,9 @@ const CarsContainer: React.FC<Props> = ({
   searchQuery
 }) => {
   const filteredData = data?.find(item => item.category_id === Number(searchParams));
-  const searchData = findCardByQuery(data, searchQuery);
-
+  
+  const debouncedValue = useDebounce(searchQuery, 500)
+  const searchData = findCardByQuery(data, debouncedValue);
 
   return (
     <>
