@@ -4,7 +4,7 @@ import carsReducer from './features/carsSlice';
 export const store = () => {
   return configureStore({
     reducer: {
-      counter: carsReducer
+      cars: carsReducer
     }
   })
 }

@@ -1,6 +1,6 @@
 import { TCarType } from "@/app/helpers/types";
 import Image from "next/image";
-import heart from '@/app/assets/icon/heart.svg';
+import WishlistButton from "../Button/WishlistButton";
 
 interface Props {
     data: TCarType
@@ -16,9 +16,7 @@ const CarList: React.FC<Props> = ({ data }) => {
                 alt={data?.vehicle} />
             <div className="flex flex-row justify-between">
                 <p className=" text-center text-[#6C6E72] text-xl font-medium">{data?.vehicle}</p>
-                <button className=" hover:scale-110">
-                    <Image src={heart} width={24} height={24} alt="Like" />
-                </button>
+                <WishlistButton data={data} />
             </div>
         </div>
     );
