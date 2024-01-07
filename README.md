@@ -17,6 +17,9 @@ Hybrid Rendering ( SSR & CSR )
 
 ![dom-tree](https://github.com/nandorfn/Bluebird-Frontend_Task/assets/105403744/6172cf9c-bd1e-4e85-9073-1353cee68d66)
 
+## Test Report
+![Test-Report](https://github.com/nandorfn/Bluebird-Frontend_Task/assets/105403744/dd4ae7d0-fc46-403f-80b5-795f222cf2dd)
+
 ## Screenshots
 1. Halaman Home
 ![homepage](https://github.com/nandorfn/Bluebird-Frontend_Task/assets/105403744/4e0ca8b6-1b9b-43c6-a472-cb9987beed42)
