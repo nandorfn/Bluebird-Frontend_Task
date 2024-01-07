@@ -1,6 +1,6 @@
-import { TCarType } from "@/app/helpers/types";
-import Image from "next/image";
 import Link from "next/link";
+import { TCarType } from "@/app/helpers/types";
+import { FallbackImage } from "../Error/FallbackImage";
 
 interface Props {
   data: TCarType
@@ -10,7 +10,7 @@ const CarCard: React.FC<Props> = ({ data }) => {
   return (
     <Link href={`details?name=${data?.vehicle}`}className="flex flex-row mx-auto w-[90%] md:w-[40rem] shadow-lg rounded-xl ">
       <figure>
-        <Image
+        <FallbackImage
           src={data?.imageURL}
           width={500}
           height={500}
