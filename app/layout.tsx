@@ -23,6 +23,7 @@ export default function RootLayout({
       <StoreProvider>
         <body className={inter.className}>
           <ToastContainer
+            limit={2}
             autoClose={2000}
             hideProgressBar={true}
           />
