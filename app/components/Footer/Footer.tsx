@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#2f5296] text-white">
+    <footer data-testid="footer" className="bg-[#2f5296] text-white">
       <div className="flex flex-col md:flex-row max-w-7xl mx-auto justify-between p-5 gap-5">
         <section className="flex flex-col gap-5">
           <Image src={brandLogo} width={231} height={65} alt="Bluebird" />
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
             <ul className="flex flex-row gap-2">
               {sosmedLink?.map((item: TLinkSource, index: number) => (
                 <li key={index}>
-                  <Link href={item.href} target="_blank">
+                  <Link href={item.href} data-testid="sosmed-link" target="_blank">
                     <Image src={item.logo} width={25} height={25} alt={item.logo} />
                   </Link>
                 </li>
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
               }
             </ul>
           </div>
-          <List title={null} menu={extendLinks} />
+          <List title={null} testId="extend-link-test" menu={extendLinks} />
         </section>
 
         <section className="flex flex-col">
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-2 h-fit items-center justify-start">
               {
                 appSource?.map((item: TLinkSource, index: number) => (
-                  <Link href={item.href} target="_blank" key={index}>
+                  <Link href={item.href} data-testid="app-source-link" target="_blank" key={index}>
                     <Image
                       src={item.logo}
                       width={140}
@@ -50,8 +50,8 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex flex-col lg:flex-row gap-5">
-            <List title={'About Us'} menu={aboutUs} />
-            <List title={'Products'} menu={products} />
+            <List title={'About Us'} testId="about-use-test" menu={aboutUs} />
+            <List title={'Products'} testId="products-test" menu={products} />
           </div>
         </section>
       </div>
@@ -65,12 +65,13 @@ export default Footer;
 type List = {
   title: string | null;
   menu: string[];
+  testId: string;
 }
 
-const List = ({ title, menu }: List) => {
+const List = ({ title, menu, testId }: List) => {
   const items = menu?.map((item: string | null, index: number) => (
-    <li className="me-5" key={index}>
-      <Link href={'#'}>
+    <li className="me-5" key={index} >
+      <Link href={'#'} data-testid={testId}>
         {item}
       </Link>
     </li>

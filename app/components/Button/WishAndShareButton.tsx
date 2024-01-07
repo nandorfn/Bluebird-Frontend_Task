@@ -1,13 +1,16 @@
 'use client'
-import share from '@/app/assets/icon/share.svg';
-import heart from '@/app/assets/icon/heart.svg';
-import heartFill from '@/app/assets/icon/heart-fill.svg';
-import check from '@/app/assets/icon/check-circle.svg';
+// packages
 import Image from 'next/image';
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
-import { addWishlist } from '@/app/redux/features/carsSlice';
 import { TCarType } from '@/app/helpers/types';
+import { addWishlist } from '@/app/redux/features/carsSlice';
+import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
+
+// assets
+import share from '@/app/assets/icon/share.svg';
+import heart from '@/app/assets/icon/heart.svg';
+import check from '@/app/assets/icon/check-circle.svg';
+import heartFill from '@/app/assets/icon/heart-fill.svg';
 
 interface Props {
   data: TCarType;

@@ -1,11 +1,10 @@
 import { TCarType } from '@/app/helpers/types'
 import { createSlice } from '@reduxjs/toolkit'
 
-interface CarsState {
+export type CarsState = {
   wishlist: TCarType[],
   booking: TCarType[],
 }
-
 
 const initialState: CarsState = {
   wishlist: [],
@@ -25,7 +24,9 @@ const counterSlice = createSlice({
     },
 
     addBookingOrder: (state, action) => {
-      state.booking = [...state.booking, action?.payload];
+      if (action.payload !== null) {
+        state.booking = [...state.booking, action?.payload];
+      }
     }
   },
 })
