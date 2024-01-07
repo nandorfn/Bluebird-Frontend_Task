@@ -1,5 +1,6 @@
 ## Front-end React Developer - Bluebird Test
 Nama: Roqman Firnando
+Link Deployment: https://bluebird-frontend-task.vercel.app/
 
 ### Tech Stack
 - Typescript
