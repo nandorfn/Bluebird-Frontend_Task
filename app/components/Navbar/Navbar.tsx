@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 
 export const Navbar: React.FC = () => {
   return (
-    <header className="bg-[#2f5296]">
+    <header className="bg-[#2f5296] sticky top-0 z-50">
       <nav className="flex justify-between items-center py-2 max-w-7xl mx-auto px-4">
         <Link href={'#'}>
           <Image
