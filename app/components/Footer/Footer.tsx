@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     <footer data-testid="footer" className="bg-[#2f5296] text-white">
       <div className="flex flex-col md:flex-row max-w-7xl mx-auto justify-between p-5 gap-5">
         <section className="flex flex-col gap-5">
-          <Image src={brandLogo} width={231} height={65} alt="Bluebird" />
+          <Image unoptimized src={brandLogo} width={231} height={65} alt="Bluebird" />
 
           <address id="companyAddress" className="not-italic">
             <h2 className="font-semibold text-lg">Bluebird Main Office</h2>
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
               {sosmedLink?.map((item: TLinkSource, index: number) => (
                 <li key={index}>
                   <Link href={item.href} data-testid="sosmed-link" target="_blank">
-                    <Image src={item.logo} width={25} height={25} alt={item.logo} />
+                    <Image unoptimized src={item.logo} width={25} height={25} alt={item.logo} />
                   </Link>
                 </li>
               ))
@@ -39,6 +39,7 @@ const Footer: React.FC = () => {
                 appSource?.map((item: TLinkSource, index: number) => (
                   <Link href={item.href} data-testid="app-source-link" target="_blank" key={index}>
                     <Image
+                      unoptimized
                       src={item.logo}
                       width={140}
                       height={40}
