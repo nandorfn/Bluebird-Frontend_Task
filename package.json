@@ -2,6 +2,7 @@
   "name": "bluebird-tets",
   "version": "0.1.0",
   "private": true,
+  "author": "Roqman Firnando",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
