@@ -8,6 +8,7 @@ interface Props {
 }
 
 const CarList: React.FC<Props> = ({ data }) => {
+    console.log(data)
     return (
         <Link
             href={`details?name=${data?.vehicle}`}
