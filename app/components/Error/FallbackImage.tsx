@@ -29,6 +29,7 @@ export const FallbackImage: React.FC<Props> = ({
       src={imgSrc || noImage}
       width={width}
       height={height}
+      unoptimized
       onError={() => {
         setImgSrc('/images/not-found.png')
       }}
