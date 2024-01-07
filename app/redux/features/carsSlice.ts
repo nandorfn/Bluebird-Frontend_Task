@@ -1,5 +1,7 @@
-import { TCarType } from '@/app/helpers/types'
-import { createSlice } from '@reduxjs/toolkit'
+import { TCarType } from '@/app/helpers/types';
+import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export type CarsState = {
   wishlist: TCarType[],
@@ -20,12 +22,20 @@ const counterSlice = createSlice({
       const isExist = state.wishlist.some(item => item.vehicle === action.payload.vehicle);
 
       // jika belum, tambahkan data baru ke state wishlist
-      if (!isExist) state.wishlist = [...state.wishlist, action?.payload];
+      if (!isExist) {
+        state.wishlist = [...state.wishlist, action?.payload];
+        toast.success('Berhasil menambahkan data ke wishlist!');
+      } else {
+        toast.error('Data sudah ada di wishlist!');
+      }
     },
 
     addBookingOrder: (state, action) => {
       if (action.payload !== null) {
         state.booking = [...state.booking, action?.payload];
+        toast.success('Transaksi order berhasil!');
+      } else {
+        toast.error('Transaksi order gagal!');
       }
     }
   },

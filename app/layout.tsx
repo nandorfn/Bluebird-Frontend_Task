@@ -4,6 +4,7 @@ import './globals.css'
 import { Navbar } from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import StoreProvider from './StoreProvider'
+import { ToastContainer } from 'react-toastify'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <StoreProvider>
         <body className={inter.className}>
+          <ToastContainer
+            autoClose={2000}
+            hideProgressBar={true}
+          />
           <Navbar />
           {children}
           <Footer />

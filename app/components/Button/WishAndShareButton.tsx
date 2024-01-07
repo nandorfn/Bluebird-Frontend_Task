@@ -5,12 +5,14 @@ import { useState } from 'react';
 import { TCarType } from '@/app/helpers/types';
 import { addWishlist } from '@/app/redux/features/carsSlice';
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
+import "react-toastify/dist/ReactToastify.css";
 
 // assets
 import share from '@/app/assets/icon/share.svg';
 import heart from '@/app/assets/icon/heart.svg';
 import check from '@/app/assets/icon/check-circle.svg';
 import heartFill from '@/app/assets/icon/heart-fill.svg';
+import { toast } from 'react-toastify';
 
 interface Props {
   data: TCarType;
@@ -21,6 +23,9 @@ const WishAndShareButton: React.FC<Props> = ({ data }) => {
 
   const handleShare = async () => {
     await navigator.clipboard.writeText(location.href);
+    toast.success('Berhasil menyalin link!', {
+      position: "top-center"
+    })
     setIsShared(true);
   }
 
