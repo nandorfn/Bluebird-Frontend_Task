@@ -35,6 +35,7 @@ const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
             src={car?.imageURL}
             width={300}
             height={300}
+            unoptimized
             alt={car?.vehicle} />
 
           <WishAndShareButton data={car} />
