@@ -1,8 +1,10 @@
-import { TCarsType } from "@/app/helpers/types";
 import Image from "next/image";
-import WishAndShareButton from "../Button/WishAndShareButton";
+import { TCarsType } from "@/app/helpers/types";
+
+// Components
 import EmptyData from "../Error/EmptyData";
 import BookingButton from "../Button/BookingButton";
+import WishAndShareButton from "../Button/WishAndShareButton";
 
 interface Props {
   data: TCarsType[],
@@ -15,9 +17,13 @@ type SearchObject = {
 }
 
 const CarDetailsContainer: React.FC<Props> = ({ data, searchParam }) => {
+  // ambil query search param 'name'
   const { name }: SearchObject = searchParam;
+  
+  // mencari data mobil sesuai dengan nama
   const car = findDataByNameAndCategoryId(data, name);
 
+  // return pesan error jika data tidak ada
   if (!car) return <EmptyData message="Data tidak ditemukan!" />
 
   return (

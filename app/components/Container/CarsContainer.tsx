@@ -18,8 +18,10 @@ const CarsContainer: React.FC<Props> = ({
   searchParams,
   searchQuery
 }) => {
+  // filder data berdasarkan url param category_id
   const filteredData = data?.find(item => item.category_id === Number(searchParams));
   
+  // delay pencarian data 500ms sata mencari di searchbar
   const debouncedValue = useDebounce(searchQuery, 500)
   const searchData = findCardByQuery(data, debouncedValue);
 

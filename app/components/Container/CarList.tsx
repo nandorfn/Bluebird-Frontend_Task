@@ -1,19 +1,18 @@
-import { TCarType } from "@/app/helpers/types";
-import Image from "next/image";
-import WishlistButton from "../Button/WishlistButton";
 import Link from "next/link";
+import { TCarType } from "@/app/helpers/types";
+import WishlistButton from "../Button/WishlistButton";
+import { FallbackImage } from "../Error/FallbackImage";
 
 interface Props {
     data: TCarType
 }
 
 const CarList: React.FC<Props> = ({ data }) => {
-    console.log(data)
     return (
         <Link
             href={`details?name=${data?.vehicle}`}
             className="flex w-fit mx-auto flex-col gap-2 p-4 shadow-xl rounded-xl cursor-pointer">
-            <Image
+            <FallbackImage
                 src={data?.imageURL}
                 width={300}
                 height={300}

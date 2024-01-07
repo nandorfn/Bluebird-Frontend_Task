@@ -1,7 +1,7 @@
 'use client'
 import { TCarType } from "@/app/helpers/types";
-import { addBookingOrder } from "@/app/redux/features/carsSlice";
 import { useAppDispatch } from "@/app/redux/hooks";
+import { addBookingOrder } from "@/app/redux/features/carsSlice";
 
 interface Props {
   data: TCarType

@@ -1,15 +1,12 @@
 'use client'
-import { TCarType, TCarsType } from "@/app/helpers/types";
+import { TCarType } from "@/app/helpers/types";
 import { useAppSelector } from "@/app/redux/hooks";
+
+// Components
 import CarCard from "./CarCard";
 import EmptyData from "../Error/EmptyData";
 
-interface Props {
-  searchParam: string | string[] | undefined ;
-  data: TCarsType[]
-}
-
-const WishlistContainer: React.FC<Props> = ({ searchParam, data}) => {
+const WishlistContainer: React.FC = () => {
   const wishlist = useAppSelector((state) => state.cars.wishlist);
   
   if (wishlist.length < 1) return <EmptyData message="Data kosong!" />;
